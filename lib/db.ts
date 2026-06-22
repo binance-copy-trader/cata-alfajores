@@ -27,12 +27,13 @@ function encontrarUrl(): string {
 }
 
 let _sql: NeonQueryFunction<false, false> | null = null;
-export function sql(...args: Parameters<NeonQueryFunction<false, false>>) {
+
+// Se usa como tagged template: sql`SELECT ...`
+export function sql(strings: TemplateStringsArray, ...values: any[]): Promise<any[]> {
   if (!_sql) {
     _sql = neon(encontrarUrl());
   }
-  // @ts-expect-error - reenviamos el tagged template / args tal cual
-  return _sql(...args);
+  return _sql(strings, ...values) as Promise<any[]>;
 }
 
 // Crea la tabla si no existe. Idempotente y barato.
