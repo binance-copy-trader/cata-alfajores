@@ -28,6 +28,11 @@ export default function QR() {
         </p>
         {img ? <img src={img} alt="QR para votar" /> : <p>Generando QR…</p>}
         <div className="qr-url">{url}</div>
+        {img && (
+          <a className="btn" href={img} download="cata-alfajores-qr.png" style={{ textDecoration: "none", marginTop: 14 }}>
+            ⬇️ Descargar QR (PNG)
+          </a>
+        )}
         <p style={{ fontSize: "0.85rem", color: "#999" }}>
           Mostralo en una tele o imprimilo para que cada invitado escanee con la cámara.
         </p>
