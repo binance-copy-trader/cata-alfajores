@@ -31,7 +31,9 @@ let _sql: NeonQueryFunction<false, false> | null = null;
 // Se usa como tagged template: sql`SELECT ...`
 export function sql(strings: TemplateStringsArray, ...values: any[]): Promise<any[]> {
   if (!_sql) {
-    _sql = neon(encontrarUrl());
+    // fetchOptions: { cache: "no-store" } evita que Next.js cachee las
+    // consultas (si no, las lecturas devuelven datos viejos para siempre).
+    _sql = neon(encontrarUrl(), { fetchOptions: { cache: "no-store" } });
   }
   return _sql(strings, ...values) as Promise<any[]>;
 }
