@@ -1,12 +1,19 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { sql, ensureSchema } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
 
 // Endpoint TEMPORAL de diagnóstico. Borrar después.
-export async function GET() {
+export async function GET(req: NextRequest) {
   try {
     await ensureSchema();
+
+    // Reset: ?reset=BORRAR-TODO borra TODOS los votos (deja la cata en cero)
+    if (req.nextUrl.searchParams.get("reset") === "BORRAR-TODO") {
+      await sql`DELETE FROM votos`;
+      const c = (await sql`SELECT count(*)::int AS n FROM votos`) as Array<{ n: number }>;
+      return NextResponse.json({ reset: true, filasRestantes: c[0]?.n });
+    }
 
     // ¿Qué variable de entorno y host estamos usando?
     const env = process.env;
