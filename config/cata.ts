@@ -4,7 +4,7 @@
 
 // Título que se ve arriba de todo
 export const TITULO = "Cata de Alfajores";
-export const SUBTITULO = "🎉 ¡15 años de León! 🎉";
+export const SUBTITULO = "🎉 ¡16 años de León! 🎉";
 
 // --- LISTA DE ALFAJORES ---
 // Cambiá esta lista por los alfajores reales de tu cata.
