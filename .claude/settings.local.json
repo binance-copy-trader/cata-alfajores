@@ -3,7 +3,18 @@
     "allow": [
       "Bash(npm -v)",
       "PowerShell(git remote set-url origin https://github.com/binance-copy-trader/cata-alfajores.git)",
-      "PowerShell(Get-ChildItem \"D:\\\\cumple-leon-alfajor\\\\public\\\\fotos\" | Select-Object Name, @{N='KB';E={[math]::Round\\($_.Length/1KB\\)}} | Format-Table -AutoSize)"
+      "PowerShell(Get-ChildItem \"D:\\\\cumple-leon-alfajor\\\\public\\\\fotos\" | Select-Object Name, @{N='KB';E={[math]::Round\\($_.Length/1KB\\)}} | Format-Table -AutoSize)",
+      "Bash(echo \"=== GET /api/results ===\")",
+      "Bash(curl -s -o /tmp/res.txt -w 'HTTP %{http_code}\\\\n' https://cata-alfajores.vercel.app/api/results)",
+      "Read(//tmp/**)",
+      "Bash(echo)",
+      "Bash(echo \"=== POST /api/vote \\(voto de prueba\\) ===\")",
+      "Bash(curl -s \"https://cata-alfajores.vercel.app/api/results\")",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('totalVotantes:', d['totalVotantes']\\); print\\('totalVotos:', d['totalVotos']\\); print\\('votantes:', sorted\\(set\\(v for r in d['resultado'] for v in r['votantes']\\)\\)\\)\")",
+      "Bash(curl -s -D - -o /dev/null https://cata-alfajores.vercel.app/api/results)",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('votos:', d['totalVotos'], '| votantes:', sorted\\(set\\(v for r in d['resultado'] for v in r['votantes']\\)\\)\\)\")",
+      "Bash(curl -s https://cata-alfajores.vercel.app/api/debug?t=__TRACKED_VAR__)",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('totalVotos:', d['totalVotos'], '| totalVotantes:', d['totalVotantes']\\); print\\('votantes:', sorted\\(set\\(v for r in d['resultado'] for v in r['votantes']\\)\\)\\)\")"
     ]
   }
 }
