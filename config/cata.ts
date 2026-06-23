@@ -12,12 +12,19 @@ export const SUBTITULO = "🎉 ¡16 años de León! 🎉";
 // "nombre" es lo que ven los chicos. Podés agregar un "emoji" si querés.
 // Tip: para la cata a ciegas, podés usar nombres tipo "Alfajor A", "Alfajor B"...
 export const ALFAJORES = [
-  { id: "a", nombre: "Alfajor A", emoji: "🅰️" },
-  { id: "b", nombre: "Alfajor B", emoji: "🅱️" },
-  { id: "c", nombre: "Alfajor C", emoji: "🇨" },
-  { id: "d", nombre: "Alfajor D", emoji: "🇩" },
-  { id: "e", nombre: "Alfajor E", emoji: "🇪" },
-  { id: "f", nombre: "Alfajor F", emoji: "🇫" },
+  { id: "terrabusi-3torta", nombre: "Terrabusi 3 Torta", emoji: "🍫" },
+  { id: "aguila-minitorta-dark", nombre: "Águila Minitorta Dark", emoji: "🦅" },
+  { id: "rasta-negro", nombre: "Rasta - Negro", emoji: "⚫" },
+  { id: "vauquita-sublime", nombre: "Vauquita Sublime", emoji: "🐮" },
+  { id: "cachafaz-almendra72", nombre: "Cachafaz Almendra 72%", emoji: "🌰" },
+  { id: "milka-super-ddl", nombre: "Milka Súper Dulce de Leche", emoji: "🟣" },
+  { id: "rasta-maicena-trico", nombre: "Rasta Maicena Trico", emoji: "🟡" },
+  { id: "pituco-membrillo", nombre: "Pituco de Membrillo", emoji: "🟧" },
+  { id: "fantoche-triple-day", nombre: "Fantoche Triple Day", emoji: "🍫" },
+  { id: "cofler-block", nombre: "Cofler Block", emoji: "🟥" },
+  { id: "red-velvet-triple", nombre: "Red Velvet Triple", emoji: "❤️" },
+  { id: "bagley-byn", nombre: "Bagley B&N", emoji: "🐼" },
+  { id: "jorgito-blanco", nombre: "Jorgito Blanco", emoji: "⚪" },
 ];
 
 // --- CRITERIOS CON ESTRELLAS (1 a 5) ---
