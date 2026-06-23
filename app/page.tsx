@@ -14,6 +14,7 @@ export default function Page() {
   const [confirmado, setConfirmado] = useState(false);
   const [votos, setVotos] = useState<Record<string, Voto>>({});
   const [toast, setToast] = useState("");
+  const [sinFoto, setSinFoto] = useState<Set<string>>(new Set());
 
   // Cargar estado guardado en el celular
   useEffect(() => {
@@ -154,7 +155,16 @@ export default function Page() {
         return (
           <div className="card" key={a.id}>
             <div className="alfajor-nombre">
-              <span className="emoji">{a.emoji || "🍪"}</span>
+              {a.foto && !sinFoto.has(a.id) ? (
+                <img
+                  className="alfajor-foto"
+                  src={a.foto}
+                  alt={a.nombre}
+                  onError={() => setSinFoto((s) => new Set(s).add(a.id))}
+                />
+              ) : (
+                <span className="emoji">{a.emoji || "🍪"}</span>
+              )}
               {a.nombre}
             </div>
 

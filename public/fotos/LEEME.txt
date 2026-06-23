@@ -1,0 +1,30 @@
+FOTOS DE LOS ALFAJORES
+======================
+
+Poné acá una imagen por alfajor, con EXACTAMENTE estos nombres de archivo
+(en .jpg). Si a alguno no le ponés foto, en la web se muestra el emoji.
+
+  terrabusi-3torta.jpg
+  aguila-minitorta-dark.jpg
+  rasta-negro.jpg
+  vauquita-sublime.jpg
+  cachafaz-almendra72.jpg
+  milka-super-ddl.jpg
+  rasta-maicena-trico.jpg
+  pituco-membrillo.jpg
+  fantoche-triple-day.jpg
+  cofler-block.jpg
+  red-velvet-triple.jpg
+  bagley-byn.jpg
+  jorgito-blanco.jpg
+
+CONSEJOS
+- Cuadradas quedan mejor (se muestran chiquitas y recortadas).
+- Livianas: que cada una pese menos de ~500 KB (recortala/achicala si hace falta).
+- Si tu foto es .png en vez de .jpg, o cambiás el nombre, actualizá el campo
+  "foto" del alfajor en config/cata.ts para que coincida.
+
+Después de copiar las fotos acá:
+  git add .
+  git commit -m "fotos de los alfajores"
+  git push

@@ -12,9 +12,8 @@ type Item = {
 
 const MEDALLAS = ["🥇", "🥈", "🥉"];
 
-function nombreAlfajor(id: string) {
-  const a = ALFAJORES.find((x) => x.id === id);
-  return a ? `${a.emoji || "🍪"} ${a.nombre}` : id;
+function datosAlfajor(id: string) {
+  return ALFAJORES.find((x) => x.id === id);
 }
 
 // Puntaje para ordenar: usamos el general si está, si no el promedio de estrellas (escalado a 10)
@@ -29,6 +28,7 @@ export default function Resultados() {
   const [items, setItems] = useState<Item[]>([]);
   const [tot, setTot] = useState({ votantes: 0, votos: 0 });
   const [cargado, setCargado] = useState(false);
+  const [sinFoto, setSinFoto] = useState<Set<string>>(new Set());
 
   async function cargar() {
     try {
@@ -89,11 +89,22 @@ export default function Resultados() {
       ) : (
         ranking.map((it, i) => {
           const s = score(it);
+          const a = datosAlfajor(it.alfajor_id);
           return (
             <div className={"rank-item" + (i === 0 && s > 0 ? " top" : "")} key={it.alfajor_id}>
               <div className="medalla">{MEDALLAS[i] || `${i + 1}º`}</div>
+              {a?.foto && !sinFoto.has(it.alfajor_id) ? (
+                <img
+                  className="rank-foto"
+                  src={a.foto}
+                  alt={a.nombre}
+                  onError={() => setSinFoto((sf) => new Set(sf).add(it.alfajor_id))}
+                />
+              ) : (
+                <div className="rank-foto rank-foto-emoji">{a?.emoji || "🍪"}</div>
+              )}
               <div className="rank-info">
-                <div className="rank-nombre">{nombreAlfajor(it.alfajor_id)}</div>
+                <div className="rank-nombre">{a?.nombre || it.alfajor_id}</div>
                 <div className="rank-criterios">
                   {CRITERIOS.map((c) => (
                     <span key={c.id}>
